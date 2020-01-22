@@ -1,4 +1,4 @@
-let outputEl = document.getElementById("output-target")
+const outputEl = document.getElementById("output-target")
 
 /*
     You can get a reference to DOM elements and
@@ -9,24 +9,11 @@ let outputEl = document.getElementById("output-target")
     fires, the attached "handleSectionClick"
     function gets executed.
  */
-let articleEl = document.getElementsByClassName("article-section")
-let header = document.querySelector("#page-header")
+const header = document.querySelector("#page-header")
 
 /*
-    JavaScript, in the browser, automatically send the source
-    event to the handler function for the event.
-*/
-function handleSectionClick (event) {
-    console.log(event)
-}
-
-for (let i = 0; i < articleEl.length; i++) {
-    articleEl.item(i).addEventListener("click", handleSectionClick)
-}
-
-/*
-    Define functions that hold logic to be performed when mouse
-    events are triggered by the browser.
+Define functions that hold logic to be performed when mouse
+events are triggered by the browser.
 */
 function handleHeaderMouseOver (event) {
     outputEl.innerHTML = "You moved your mouse over me"
@@ -36,13 +23,33 @@ function handleHeaderMouseOut(event) {
     outputEl.innerHTML = "Why u leave me?"
 }
 
-/*
-    Get a reference to the DOM element with an id of
-    "page-header", and attach an event handler for the
-    mouseover, and mouseout, events.
- */
 header.addEventListener("mouseover", handleHeaderMouseOver)
 header.addEventListener("mouseout", handleHeaderMouseOut)
+
+
+/*
+Get a reference to the DOM element with an id of
+"page-header", and attach an event handler for the
+mouseover, and mouseout, events.
+*/
+// header.addEventListener("mouseover", handleHeaderMouseOver)
+// header.addEventListener("mouseout", handleHeaderMouseOut)
+
+/*
+JavaScript, in the browser, automatically send the source
+event to the handler function for the event.
+*/
+const articleEl = document.getElementsByClassName("article-section")
+
+function handleSectionClick (event) {
+    console.log(event.target.id)
+}
+
+for (let i = 0; i < articleEl.length; i++) {
+    articleEl[i].addEventListener("click", handleSectionClick)
+}
+
+
 
 
 
@@ -53,7 +60,8 @@ header.addEventListener("mouseout", handleHeaderMouseOut)
  */
 let fieldEl = document.getElementById("keypress-input")
 
-fieldEl.addEventListener("keyup", function (event) {
+fieldEl.addEventListener("keyup", (event) => {
+    console.log(event)
     outputEl.innerHTML = event.target.value
 })
 
@@ -103,3 +111,26 @@ document.getElementById("add-rounding").addEventListener("click", function() {
 // document.querySelector("body").addEventListener("click", function(event) {
 //     console.log("You clicked on the body of the DOM")
 // })
+
+//Collecting User Input
+const addressContainer = document.querySelector("#addressList")
+
+const captureUserInfo = (event) => {
+    console.log(event)
+    const enteredName = document.getElementById("fullName")
+    const enteredAddress = document.getElementById("address")
+
+    addressContainer.innerHTML += `
+        <section>
+            <p>Name: ${enteredName.value}</p>
+            <p>Address: ${enteredAddress.value}</p>
+        </section>
+    `
+
+    enteredName.value = ""
+    enteredAddress.value =""
+    
+}
+
+
+document.getElementById("saveEntry").addEventListener("click", captureUserInfo)

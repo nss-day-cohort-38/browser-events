@@ -4,6 +4,10 @@ article {
     margin: 10px 0px;
 }
 
+#page-header:hover {
+    color:red;
+}
+
 .blue {
     color: blue;
   }
