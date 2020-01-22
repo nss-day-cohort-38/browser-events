@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>events</title>
+    <link rel="stylesheet" href="./main.css">
+
+</head>
+
+<body>
+    <header id="page-header">
+        <h1>Mouseover Header</h1>
+    </header>
+
+    <ul>
+        <li>Unordered list item 1</li>
+        <li>Unordered list item 2</li>
+        <li>Unordered list item 3</li>
+    </ul>
+
+    <article>
+        <section id="intro" class="article-section">Introduction</section>
+        <section id="body" class="article-section">Body</section>
+        <section id="conclusion" class="article-section">Conclusion</section>
+    </article>
+
+
+    <article>
+        <h3>Keypress Input:</h3>
+        <input type="text" id="keypress-input">
+    </article>
+
+
+    <article>
+        <h3>Output Section</h3>
+        <div id="output-target"></div>
+    </article>
+
+    <article>
+        <div id="guinea-pig">Leave me alone</div>
+        <button id="add-color">Add color</button>
+        <button id="make-large">Hulkify</button>
+        <button id="add-border">Capture it</button>
+        <button id="add-rounding">Rounded</button>
+    </article>
+
+    <article>
+        <h2>Collecting User Input</h2>
+        <fieldset>
+            <label for="fullName">Name</label>
+            <input type="text" id="fullName" placeholder="Enter person's full name" autofocus />
+        </fieldset>
+        <fieldset>
+            <label for="address">Address</label>
+            <input type="text" id="address" placeholder="Address" />
+        </fieldset>
+        <button id="saveEntry">Save Address</button>
+        <section id="addressList"> </section>
+
+    </article>
+
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>
